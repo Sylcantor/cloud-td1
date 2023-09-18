@@ -3,9 +3,7 @@ services:
   web:
     build: .
     environment:
-      - POSTGRESQL_ADDON_USER=user
-      - POSTGRESQL_ADDON_PASSWORD=password
-      - POSTGRESQL_ADDON_DB=test_db
+      - POSTGRESQL_ADDON_URI=postgresql://user:password@db/test_db
     ports:
       - "8080:8080"
     depends_on:

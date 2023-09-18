@@ -6,12 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Retrieve environment variables
-DB_USER = os.environ.get("POSTGRESQL_ADDON_USER", "user")
-DB_PASSWORD = os.environ.get("POSTGRESQL_ADDON_PASSWORD", "password")
-DB_NAME = os.environ.get("POSTGRESQL_ADDON_DB", "test_db")
+POSTGRESQL_ADDON_URI = os.environ.get("POSTGRESQL_ADDON_URI", "postgresql://user:password@db/test_db")
 
 # Configure the database
-DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@db/{DB_NAME}"
+DATABASE_URL = POSTGRESQL_ADDON_URI
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
