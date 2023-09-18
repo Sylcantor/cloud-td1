@@ -6,9 +6,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Retrieve environment variables
-DB_USER = os.environ.get("DB_USER", "user")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "password")
-DB_NAME = os.environ.get("DB_NAME", "test_db")
+DB_USER = os.environ.get("POSTGRESQL_ADDON_USER", "user")
+DB_PASSWORD = os.environ.get("POSTGRESQL_ADDON_PASSWORD", "password")
+DB_NAME = os.environ.get("POSTGRESQL_ADDON_DB", "test_db")
 
 # Configure the database
 DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@db/{DB_NAME}"
